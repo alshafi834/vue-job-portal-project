@@ -30,7 +30,7 @@
             v-else
             data-test="login-button"
             text="Sign In"
-            @click="loginUser"
+            @click="LOGIN_USER"
           />
         </div>
       </div>
@@ -44,6 +44,8 @@
 import ActionButton from "@/components/Shared/ActionButton.vue";
 import ProfileAvatar from "./ProfileAvatar.vue";
 import SubNav from "./SubNav.vue";
+import { LOGIN_USER } from "@/store";
+import { mapState, mapMutations } from "vuex";
 export default {
   name: "MainNav",
   components: {
@@ -54,14 +56,13 @@ export default {
   data() {
     return {
       menuItems: [
-        { text: "Teams", url: "/" },
+        { text: "Teams", url: "/teams" },
         { text: "Locations", url: "/" },
         { text: "Life at AS", url: "/" },
         { text: "How we hire", url: "/" },
         { text: "Students", url: "/" },
         { text: "Jobs", url: "/jobs/results" },
       ],
-      isLoggedIn: false,
     };
   },
   computed: {
@@ -71,11 +72,10 @@ export default {
         "h-32": this.isLoggedIn,
       };
     },
+    ...mapState(["isLoggedIn"]),
   },
   methods: {
-    loginUser() {
-      this.isLoggedIn = true;
-    },
+    ...mapMutations([LOGIN_USER]),
   },
 };
 </script>
