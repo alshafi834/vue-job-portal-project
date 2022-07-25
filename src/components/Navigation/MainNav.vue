@@ -44,7 +44,7 @@
 import ActionButton from "@/components/Shared/ActionButton.vue";
 import ProfileAvatar from "./ProfileAvatar.vue";
 import SubNav from "./SubNav.vue";
-import { LOGIN_USER } from "@/store";
+import { LOGIN_USER } from "@/store/constants";
 import { mapState, mapMutations } from "vuex";
 export default {
   name: "MainNav",
